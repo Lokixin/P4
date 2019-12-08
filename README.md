@@ -115,7 +115,7 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | **Error Rate**	   |3.48% | 1.17%|  XXX |
+  | **Error Rate**	   |3.48% | 1.17%|20.92%|
   
   *Nota: La tasa de error se ha seleccionado con los parámetros que minimizan el coste. Se pueden conseguir*
   *errores más reducidos pero con un coste menor. Entendemos que tienen que ser los mismos parámetros para ambas tablas.*
@@ -129,10 +129,15 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
   
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | **Cost Detection**	   |67.8  | 18.8 |  XXX |
-  | **Falsa alarma**	   |   1  |  0   |  XXX |
-  | **Número Pérdidas**	   | 145  |  47  |  XXX |
-  | **TH Utilizado**	   |0.798 | 1.057|  XXX |
+  | **Cost Detection**	   |67.8  | 18.8 |  89.2|
+  | **Falsa alarma**	   |   1  |  0   |   0  |
+  | **Número Pérdidas**	   | 145  |  47  |  223 |
+  | **TH Utilizado**	   |0.798 | 1.057| 1.157|
+  
+  Parámetros utilizados: 
+  1. LP: 13 Coefs, 19 Gausianas Train, 22 Gausianas Trainworld
+  2. LPC: 20 Coefs, 14 Gausianas Train, 12 Gausianas Trainworld
+  3. MFCC: 18 Coefs, 16 Gausianas Train, 16 Gausianas Trainworld
   
   
 ### Test final y trabajo de ampliación.
