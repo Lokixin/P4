@@ -80,9 +80,16 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
 
   |                        | LP   | LPCC | MFCC |
   |------------------------|:----:|:----:|:----:|
-  | &rho;<sub>x</sub>[2,3] |      |      |      |
+  | &rho;<sub>x</sub>[2,3] |-0.55 | 0.45 |  0.2 |
   
   + Compare los resultados de <code>pearson</code> con los obtenidos gráficamente.
+  
+  El coeficiente de pearson tiene valores en el intervalo [-1 , 1]. Cuánto más cercano al 1 mayor es la
+  correlación y cuánto más cercano a 0 menor lo es. La correlación negativa significa que la dependencia
+  es inversamente proporcional y la positiva es proporcional. 
+  Por tanto, LP tiene una clara dependencia inversamente proporcional y LPC tiene una tendencia, un poco más 
+  suave, directamente proporcional. En cambio MFCC a simple vista no parece que los coeficientes tengan 
+  relación entre sí. 
   
 ### Entrenamiento y visualización de los GMM.
 
@@ -105,6 +112,13 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
 
 - Inserte una tabla con la tasa de error obtenida en el reconocimiento de los locutores de la base de datos
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
+  
+  |                        | LP   | LPCC | MFCC |
+  |------------------------|:----:|:----:|:----:|
+  | **Error Rate**	   |3.48% | 1.17%|  XXX |
+  
+  *Nota: La tasa de error se ha seleccionado con los parámetros que minimizan el coste. Se pueden conseguir*
+  *errores más reducidos pero con un coste menor. Entendemos que tienen que ser los mismos parámetros para ambas tablas.*
 
 ### Verificación del locutor.
 
@@ -112,7 +126,18 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 200 -p 40 | $WINDOW -l 200 -L 200
   de verificación de SPEECON. La tabla debe incluir el umbral óptimo, el número de falsas alarmas y de
   pérdidas, y el score obtenido usando la parametrización que mejor resultado le hubiera dado en la tarea
   de reconocimiento.
- 
+  
+  |                        | LP   | LPCC | MFCC |
+  |------------------------|:----:|:----:|:----:|
+  | **Cost Detection**	   |67.8  | 18.8 |  XXX |
+  |------------------------|:----:|:----:|:----:|
+  | **Falsa alarma**	   |   1  |  0   |  XXX |
+  |------------------------|:----:|:----:|:----:|
+  | **Número Pérdidas**	   | 145  | 47   |  XXX |
+  |------------------------|:----:|:----:|:----:|
+  | **TH Utilizado**	   |0.798 | 1.057|  XXX |
+  
+  
 ### Test final y trabajo de ampliación.
 
 - Recuerde adjuntar los ficheros `class_test.log` y `verif_test.log` correspondientes a la evaluación
