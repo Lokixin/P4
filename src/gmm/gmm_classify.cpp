@@ -27,9 +27,20 @@ int classify(const vector<GMM> &vgmm, const fmatrix &dat, float &maxlprob) {
 
   /// \TODO 
   /// Determine the highest likelihood gmm in vgmm, and assign its index to maxind.
-  maxind = 0;
-
-
+  /// \HECHO Encontrado el máximo de vgmm computando el log(prob) de cada GMM 
+  for(unsigned int i = 0; i < vgmm.size(); i+=1){
+    /*GMM a = *next(vgmm.begin(),i);
+    lprob = a.logprob(dat);
+    if(lprob > maxlprob){
+      maxind = i;
+      maxlprob = lprob;
+    }*/
+    lprob = vgmm[i].logprob(dat);
+    if(lprob > maxlprob){
+      maxlprob = lprob;
+      maxind = i;
+    }
+  }
   return maxind;
 }
 

@@ -5,6 +5,10 @@ scripts = [
     'plot_gmm_feat.py',
     'spk_verif_score.pl',
     'wav2lp.sh',
+    'damlp2lpc.sh',
+    'plt_results.py',
+    'alltest.sh',
+    'dammfcc.sh'
 ]
 
 foreach script: scripts

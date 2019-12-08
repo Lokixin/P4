@@ -1,0 +1,141 @@
+Coefs: 13
+Num_Gauss: 12
+dom dic 8 17:28:43 CET 2019: classerr ---
+nerr=45	ntot=785	error_rate=5.73%
+dom dic  8 17:28:43 CET 2019
+dom dic 8 17:29:14 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 1.4882965467376
+Missed:     220/250=0.8800
+FalseAlarm: 0/1000=0.0000
+----------------------------------------------
+==> CostDetection: 88.0
+==============================================
+dom dic  8 17:29:14 CET 2019
+Num_Gauss: 13
+dom dic 8 17:32:21 CET 2019: classerr ---
+nerr=44	ntot=784	error_rate=5.61%
+dom dic  8 17:32:21 CET 2019
+dom dic 8 17:33:07 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.891616185248197
+Missed:     149/250=0.5960
+FalseAlarm: 2/1000=0.0020
+----------------------------------------------
+==> CostDetection: 79.4
+==============================================
+dom dic  8 17:33:07 CET 2019
+Num_Gauss: 14
+dom dic 8 17:36:35 CET 2019: classerr ---
+nerr=41	ntot=781	error_rate=5.25%
+dom dic  8 17:36:35 CET 2019
+dom dic 8 17:37:30 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.826797004318997
+Missed:     136/250=0.5440
+FalseAlarm: 2/1000=0.0020
+----------------------------------------------
+==> CostDetection: 74.2
+==============================================
+dom dic  8 17:37:30 CET 2019
+Num_Gauss: 15
+dom dic 8 17:41:17 CET 2019: classerr ---
+nerr=37	ntot=782	error_rate=4.73%
+dom dic  8 17:41:17 CET 2019
+dom dic 8 17:42:16 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.964459215380997
+Missed:     170/250=0.6800
+FalseAlarm: 1/1000=0.0010
+----------------------------------------------
+==> CostDetection: 77.9
+==============================================
+dom dic  8 17:42:16 CET 2019
+Num_Gauss: 16
+dom dic 8 17:46:18 CET 2019: classerr ---
+nerr=26	ntot=784	error_rate=3.32%
+dom dic  8 17:46:18 CET 2019
+dom dic 8 17:47:18 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.899302933494798
+Missed:     160/250=0.6400
+FalseAlarm: 1/1000=0.0010
+----------------------------------------------
+==> CostDetection: 73.9
+==============================================
+dom dic  8 17:47:18 CET 2019
+Num_Gauss: 17
+dom dic 8 17:51:34 CET 2019: classerr ---
+nerr=28	ntot=784	error_rate=3.57%
+dom dic  8 17:51:34 CET 2019
+dom dic 8 17:52:40 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.918522090764002
+Missed:     167/250=0.6680
+FalseAlarm: 1/1000=0.0010
+----------------------------------------------
+==> CostDetection: 76.7
+==============================================
+dom dic  8 17:52:40 CET 2019
+Num_Gauss: 28
+dom dic 8 17:59:50 CET 2019: classerr ---
+nerr=23	ntot=785	error_rate=2.93%
+dom dic  8 17:59:50 CET 2019
+dom dic 8 18:01:37 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.99442816605
+Missed:     190/250=0.7600
+FalseAlarm: 0/1000=0.0000
+----------------------------------------------
+==> CostDetection: 76.0
+==============================================
+dom dic  8 18:01:37 CET 2019
+Num_Gauss: 19
+dom dic 8 18:06:23 CET 2019: classerr ---
+nerr=22	ntot=757	error_rate=2.91%
+dom dic  8 18:06:23 CET 2019
+dom dic 8 18:07:37 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.849355208847105
+Missed:     154/250=0.6160
+FalseAlarm: 1/1000=0.0010
+----------------------------------------------
+==> CostDetection: 71.5
+==============================================
+dom dic  8 18:07:37 CET 2019
+Num_Gauss: 20
+dom dic 8 18:12:45 CET 2019: classerr ---
+nerr=26	ntot=782	error_rate=3.32%
+dom dic  8 18:12:45 CET 2019
+dom dic 8 18:14:03 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.857861297623203
+Missed:     154/250=0.6160
+FalseAlarm: 1/1000=0.0010
+----------------------------------------------
+==> CostDetection: 71.5
+==============================================
+dom dic  8 18:14:03 CET 2019
+Num_Gauss: 21
+dom dic 8 18:19:28 CET 2019: classerr ---
+nerr=25	ntot=781	error_rate=3.20%
+dom dic  8 18:19:28 CET 2019
+dom dic 8 18:20:50 CET 2019: verif_err ---
+Threshold search:
+==============================================
+THR: 0.974699545391396
+Missed:     189/250=0.7560
+FalseAlarm: 0/1000=0.0000
+----------------------------------------------
+==> CostDetection: 75.6
+==============================================
+dom dic  8 18:20:50 CET 2019

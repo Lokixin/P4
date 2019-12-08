@@ -1,0 +1,8 @@
+[options]
+prefix = /home/dimas/PAV
+libdir = lib
+buildtype = release
+backend = ninja
+
+[properties]
+

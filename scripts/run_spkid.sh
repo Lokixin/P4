@@ -12,10 +12,13 @@
 # - w:        a working directory for temporary files
 # - name_exp: name of the experiment
 # - db:       directory of the speecon database 
-lists=lists
-w=work
+# \HECHO
+# Coded functions compute_lpc() and compute_mfcc()
+lists=/home/dimas/Documentos/Uni/3B/PAV/P4/lists
+w=/home/dimas/Documentos/Uni/3B/PAV/P4/work
 name_exp=one
-db=spk_db/speecon
+db=spk_ima/speecon
+
 
 # ------------------------
 # Usage
@@ -80,7 +83,23 @@ fi
 compute_lp() {
     for filename in $(cat $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2lp 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2lp 13 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
+    done
+}
+
+compute_lpc() {
+    for filename in $(cat $lists/class/all.train $lists/class/all.test); do
+        mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+        EXEC="damlp2lpc 20 20 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
+    done
+}
+
+compute_mfcc() {
+    for filename in $(cat $lists/class/all.train $lists/class/all.test); do
+        mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+        EXEC="dammfcc 18 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
@@ -110,11 +129,13 @@ for cmd in $*; do
    if [[ $cmd == train ]]; then
        ## @file
 	   # \TODO
-	   # Select (or change) good parameters for gmm_train
+       # Select (or change) good parameters for gmm_train
+       # /// \HECHO modificado el numero de gausianas
+	  
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
-           gmm_train  -v 1 -T 0.001 -N5 -m 1 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
+           gmm_train  -v1 -T 0.001 -N 20 -m 14 -i 1 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
            echo
        done
    elif [[ $cmd == test ]]; then
@@ -138,7 +159,10 @@ for cmd in $*; do
 	   # Implement 'trainworld' in order to get a Universal Background Model for speaker verification
 	   #
 	   # - The name of the world model will be used by gmm_verify in the 'verify' command below.
-       echo "Implement the trainworld option ..."
+
+        gmm_train  -v 1 -T 0.001 -N 20 -m 12 -i 1 -e $FEAT -d $w/$FEAT -g $w/gmm/$FEAT/world.gmm $lists/verif/users_and_others.train  || exit 1
+        echo "Implement the trainworld option ..."
+
    elif [[ $cmd == verify ]]; then
        ## @file
 	   # \TODO 
@@ -149,6 +173,7 @@ for cmd in $*; do
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
        echo "Implement the verify option ..."
+       gmm_verify -d $w/$FEAT/ -e $FEAT -D $w/gmm/$FEAT -E gmm -w world $lists/verif/users.txt $lists/verif/all.test $lists/verif/all.test.candidates> $w/verif_${FEAT}_${name_exp}.log || exit 1
 
    elif [[ $cmd == verif_err ]]; then
        if [[ ! -s $w/verif_${FEAT}_${name_exp}.log ]] ; then
@@ -157,7 +182,7 @@ for cmd in $*; do
        fi
        # You can pass the threshold to spk_verif_score.pl or it computes the
        # best one for these particular results.
-       spk_verif_score.pl $w/verif_${FEAT}_${name_exp}.log | tee $w/verif_${FEAT}_${name_exp}.res
+       spk_verif_score $w/verif_${FEAT}_${name_exp}.log | tee $w/verif_${FEAT}_${name_exp}.res
 
    elif [[ $cmd == finalclass ]]; then
        ## @file
